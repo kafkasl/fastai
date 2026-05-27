@@ -412,7 +412,7 @@ class SentencePieceTokenizer(): #TODO: pass the special tokens symbol to sp
         "Decode token ids back to text"
         return self.tok.DecodeIds(list(L(*ids).map(int)))
     
-    def decode_to_pieces(self, ids) -> L[str]:
+    def decode_to_pieces(self, ids):
         "Convert a single id to its piece/token"
         return L(self.tok.IdToPiece(int(id_)) for id_ in ids)
 
@@ -420,7 +420,7 @@ class SentencePieceTokenizer(): #TODO: pass the special tokens symbol to sp
 SentencePieceTokenizer.sp_vocab = SentencePieceTokenizer.vocab
 SubwordTokenizer = SentencePieceTokenizer
 
-# %% ../../nbs/30_text.core.ipynb #e1a037a8
+# %% ../../nbs/30_text.core.ipynb #3e729d00
 class HFTokenizer:
     "HuggingFace tokenizers wrapper mimicking SentencePieceTokenizer API"
     def __init__(self, pretrained, output_ids=True, special_toks=None):
